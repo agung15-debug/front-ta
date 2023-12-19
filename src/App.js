@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import { StrictMode, useState } from "react";
+import { render } from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from './pages/LandingPage';
+import Result from './pages/Result';
 
 function App() {
+  const [response, setResponse] = useState({});;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StrictMode>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage setResponse={setResponse}/>} />
+            <Route path="/results" element={<Result response={response}/>} />
+          </Routes>
+        </BrowserRouter>
+      </StrictMode>
     </div>
-  );
+  )
 }
 
 export default App;
