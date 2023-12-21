@@ -7,14 +7,14 @@ import LandingPage from './pages/LandingPage';
 import Result from './pages/Result';
 
 function App() {
-  const [response, setResponse] = useState({});;
+  const [res, setRes] = useState({})
   return (
     <div className="App">
       <StrictMode>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LandingPage setResponse={setResponse}/>} />
-            <Route path="/results" element={<Result response={response}/>} />
+            <Route path="/" element={<LandingPage setRes={setRes}/>} />
+            <Route path='/result' element={<Result res={res}/>}/>
           </Routes>
         </BrowserRouter>
       </StrictMode>
